@@ -1,15 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Mapa;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Kandell
- */
 public class Mapa {
     ArrayList<Vertice> vertices;
 
@@ -29,8 +21,5 @@ public class Mapa {
      }catch(Exception e){
          e.printStackTrace();
      }
-     
-          
  }
-  
 }

@@ -1,41 +1,26 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Mapa;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Kandell
- */
 public class Vertice {
-
     
   private boolean init, fim;
-  private int x, y;
+  private int posicaoX, posicaoY;
   private String nome;
   private ArrayList<Aresta> arestas;
-  
-  
   
   public Vertice(boolean init, boolean fim, String nome,int x, int y) {
         this.init = init;
         this.fim = fim;
         this.nome = nome;
-        this.x = x;
-        this.y = y;
+        this.posicaoX = x;
+        this.posicaoY = y;
     }
-
   
     @Override
     public String toString() {
-        return String.format("Nome: %s\nInicio: %b\nFim: %b\nX: %d\nY: %d\n",getNome(),isInit(),isFim(),getX(),getY());
+        return String.format("Nome: %s\nInicio: %b\nFim: %b\nX: %d\nY: %d\n",getNome(),isInit(),isFim(),getPosicaoX(),getPosicaoY());
     }
-  
-  
-  
 
     public boolean isInit() {
         return init;
@@ -53,20 +38,20 @@ public class Vertice {
         this.fim = fim;
     }
 
-    public int getX() {
-        return x;
+    public int getPosicaoX() {
+        return posicaoX;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setPosicaoX(int x) {
+        this.posicaoX = x;
     }
 
-    public int getY() {
-        return y;
+    public int getPosicaoY() {
+        return posicaoY;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setPosicaoY(int y) {
+        this.posicaoY = y;
     }
 
     public String getNome() {
