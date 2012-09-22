@@ -7,5 +7,9 @@ public class Aresta {
     public Aresta(int peso, String destino) {
         this.peso = peso;
         this.destino = destino;
-    }    
+    }  
+    
+    public String getDestino(){
+        return this.destino;
+    }
 }

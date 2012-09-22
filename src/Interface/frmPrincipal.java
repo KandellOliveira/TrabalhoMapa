@@ -4,6 +4,7 @@
  */
 package Interface;
 
+import Modelos.Aresta;
 import Modelos.Mapa;
 import Modelos.Vertice;
 import Servicos.LerXml;
@@ -92,6 +93,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         Mapa mapa = new Mapa(ler.lerMapa());
         for (Vertice vertice : mapa.getVertices()) {
             txtLog.setText(vertice.getNome());
+            for (Aresta aresta : vertice.getArestas()) {
+                txtLog.setText(aresta.getDestino());
+            }
+            
          System.out.println(vertice);
         }
      
