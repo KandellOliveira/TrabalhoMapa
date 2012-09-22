@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 /Projeto/nbproject/private/
+=======
+build.xml
+manifest.mf
+build
+nbproject
+.gitignore
+build.*
+
+>>>>>>> 03edc552833576b6f2f0d4fa372de1e79929bf8a

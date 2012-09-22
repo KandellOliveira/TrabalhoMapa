@@ -1,9 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package Mapa;
+package Servicos;
 
+
+
+import Modelos.Aresta;
+import Modelos.Aresta;
+import Modelos.Vertice;
+import Modelos.Vertice;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
@@ -12,10 +14,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-/**
- *
- * @author Kandell
- */
 public class LerXml {
     
     // caminho (path) do arquivo XML  
