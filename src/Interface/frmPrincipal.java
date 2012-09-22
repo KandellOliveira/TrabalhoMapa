@@ -37,7 +37,18 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        textPathArquivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPathArquivoActionPerformed(evt);
+            }
+        });
+
         btnCarregarArquivo.setText("...");
+        btnCarregarArquivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarArquivoActionPerformed(evt);
+            }
+        });
 
         txtLog.setColumns(20);
         txtLog.setRows(5);
@@ -76,7 +87,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLerXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLerXMLActionPerformed
-     LerXml ler = new LerXml("/home/vitor/Downloads/mapa.xml");
+     LerXml ler = new LerXml(textPathArquivo.getText());
      try{
         Mapa mapa = new Mapa(ler.lerMapa());
         for (Vertice vertice : mapa.getVertices()) {
@@ -88,6 +99,14 @@ public class frmPrincipal extends javax.swing.JFrame {
          e.printStackTrace();
      }
     }//GEN-LAST:event_btnLerXMLActionPerformed
+
+    private void btnCarregarArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarArquivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCarregarArquivoActionPerformed
+
+    private void textPathArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPathArquivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textPathArquivoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
