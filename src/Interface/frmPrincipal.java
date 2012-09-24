@@ -32,13 +32,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         log(texto, false);
     }
     
-    private void log(String texto, Boolean filho){       
+    private void log(String texto, Boolean tagFilho){       
        final String QUEBRA_DE_LINHA = "\n";
        final String ABRE_TAG = "<";
        final String FECHA_TAG = ">";
        final String ESPACO_EM_BRANCO = "    ";        
 
-       if(filho){
+       if(tagFilho){
            txtLog.setText(txtLog.getText()+ 
                           ESPACO_EM_BRANCO);           
        }
@@ -48,8 +48,28 @@ public class frmPrincipal extends javax.swing.JFrame {
                       texto +
                       FECHA_TAG +
                       QUEBRA_DE_LINHA);
-
     }
+    
+    private void lerArquivoXML(){
+       LerXml ler = new LerXml(textPathArquivo.getText());
+       try{
+          Mapa mapa = new Mapa(ler.lerMapa());
+          for (Vertice vertice : mapa.getVertices()) {
+              log(vertice.toString());
+              for (Aresta aresta : vertice.getArestas()) {
+                  log(aresta.toString(), true);
+              }            
+           System.out.println(vertice);
+          }     
+       }catch(Exception e){
+           e.printStackTrace();
+       }
+    }
+    
+    private void criarMapa(){
+        //TODO                
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -58,8 +78,9 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnLerXML = new javax.swing.JButton();
         textPathArquivo = new javax.swing.JTextField();
         btnCarregarArquivo = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         txtLog = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,22 +107,40 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         txtLog.setColumns(20);
         txtLog.setRows(5);
-        jScrollPane1.setViewportView(txtLog);
+        jTabbedPane1.addTab("XML", txtLog);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 376, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 259, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Mapa", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLerXML)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCarregarArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLerXML)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCarregarArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,8 +151,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addComponent(btnCarregarArquivo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLerXML)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -126,21 +165,9 @@ public class frmPrincipal extends javax.swing.JFrame {
          return;
      }
      
-     LerXml ler = new LerXml(textPathArquivo.getText());
-     try{
-        Mapa mapa = new Mapa(ler.lerMapa());
-        for (Vertice vertice : mapa.getVertices()) {
-            log(vertice.toString());
-            for (Aresta aresta : vertice.getArestas()) {
-                log(aresta.toString(), true);
-            }
-            
-         System.out.println(vertice);
-        }
+     lerArquivoXML();
      
-     }catch(Exception e){
-         e.printStackTrace();
-     }
+     criarMapa();
     }//GEN-LAST:event_btnLerXMLActionPerformed
 
     private void btnCarregarArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarArquivoActionPerformed
@@ -201,7 +228,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCarregarArquivo;
     private javax.swing.JButton btnLerXML;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField textPathArquivo;
     private javax.swing.JTextArea txtLog;
     // End of variables declaration//GEN-END:variables
