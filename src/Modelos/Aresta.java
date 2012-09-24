@@ -10,6 +10,11 @@ public class Aresta {
     }  
     
     public String getDestino(){
-        return this.destino;
+        return destino;
+    }
+    
+    @Override
+    public String toString(){
+        return "Peso="+peso +" Destino="+destino; 
     }
 }

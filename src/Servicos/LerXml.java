@@ -3,11 +3,8 @@ package Servicos;
 
 
 import Modelos.Aresta;
-import Modelos.Aresta;
-import Modelos.Vertice;
 import Modelos.Vertice;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
@@ -35,7 +32,7 @@ public ArrayList<Vertice> lerMapa() throws Exception {
     NodeList nl = elem.getElementsByTagName( "vertice" );  
   
     // prepara o vetor      
-    ArrayList<Vertice> vetorVertice = new ArrayList<>(); 
+    ArrayList<Vertice> vetorVertice = new ArrayList<Vertice>(); 
     
     
      // percorre cada elemento usuario encontrado  
@@ -56,14 +53,14 @@ public ArrayList<Vertice> lerMapa() throws Exception {
         NodeList nlAresta = tagVertice.getElementsByTagName( "arestas" );  
   
         // prepara o vetor      
-        ArrayList<Aresta> vetorAresta = new ArrayList<>(); 
+        ArrayList<Aresta> vetorAresta = new ArrayList<Aresta>(); 
            
         for (int j = 0; j < nlAresta.getLength(); j++) {
             Element tagAresta = (Element) nlAresta.item( j );  
                
             // pega os dados cadastrado para o usuario atual  
             int peso = Integer.parseInt( tagAresta.getAttribute( "peso" ) );
-            String destino = tagVertice.getAttribute( "destino" );
+            String destino = tagAresta.getAttribute( "destino" );
             
             vetorAresta.add(new Aresta(peso,destino));
 

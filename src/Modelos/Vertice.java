@@ -19,7 +19,7 @@ public class Vertice {
   
     @Override
     public String toString() {
-        return String.format("Nome: %s\nInicio: %b\nFim: %b\nX: %d\nY: %d\n",getNome(),isInit(),isFim(),getPosicaoX(),getPosicaoY());
+        return String.format("Nome:%s Inicio:%b Fim:%b X:%d Y:%d",getNome(),isInit(),isFim(),getPosicaoX(),getPosicaoY());
     }
 
     public boolean isInit() {
