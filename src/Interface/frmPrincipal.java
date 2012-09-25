@@ -8,6 +8,9 @@ import Modelos.Aresta;
 import Modelos.Mapa;
 import Modelos.Vertice;
 import Servicos.LerXml;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -70,7 +73,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     private void criarMapa(){
         drawPanel = new DrawPanel(this.mapa.getVertices());
-        //visualizarMapa.add(drawPanel);
+        drawPanel.setVisible(true);
         
     }
     
@@ -156,7 +159,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLerXML)
                 .addGap(14, 14, 14)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 

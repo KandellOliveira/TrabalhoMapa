@@ -17,7 +17,7 @@ public class DrawPanel extends JFrame{
         setTitle("Mapa");
         setSize(800,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        setVisible(false);
         setLocationRelativeTo(null);
         this.vertices = vertices;    
     }    
@@ -55,7 +55,7 @@ public class DrawPanel extends JFrame{
                             retornaPosicaoXdoVerticeDestino(aresta), 
                             retornaPosicaoYdoVerticeDestino(aresta));
                  g.setColor(Color.BLACK);
-                 g.drawString(aresta.getPeso(), retornaPosicaoXdoVerticeDestino(aresta), 
+                 g.drawString(aresta.getPeso(), retornaPosicaoXdoVerticeDestino(aresta)+30, 
                                                 retornaPosicaoYdoVerticeDestino(aresta));
             }                     
         }
