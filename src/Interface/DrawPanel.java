@@ -6,17 +6,16 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.*;
 import Modelos.Vertice;
-import Servicos.LerXml;
 import java.util.ArrayList;
 
      
 
 public class DrawPanel extends JFrame{
-    ArrayList<Vertice> vertices;
+    private ArrayList<Vertice> vertices;
     
      public DrawPanel(ArrayList<Vertice> vertices){       
         setTitle("Mapa");
-        setSize(1000,1000);
+        setSize(800,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLocationRelativeTo(null);
@@ -43,28 +42,23 @@ public class DrawPanel extends JFrame{
     
      public void paint(Graphics g){        
          for (Vertice vertice : vertices) {  
-            g.setColor(Color.BLACK);
-            g.drawOval(vertice.getPosicaoX()-30, vertice.getPosicaoY()-30, 60, 60);
+            g.setColor(Color.blue);            
+            g.setPaintMode();
+            g.fillOval(vertice.getPosicaoX()-30, vertice.getPosicaoY()-30, 60, 60);            
+            g.setColor(Color.black); 
+            g.drawString(vertice.getNome(), vertice.getPosicaoX()-30, vertice.getPosicaoY()-30);
             for (Aresta aresta : vertice.getArestas()) {
                  g.setColor(Color.red);
+
                  g.drawLine(vertice.getPosicaoX(), 
                             vertice.getPosicaoY(), 
                             retornaPosicaoXdoVerticeDestino(aresta), 
                             retornaPosicaoYdoVerticeDestino(aresta));
-            }
-             
-        
+                 g.setColor(Color.BLACK);
+                 g.drawString(aresta.getPeso(), retornaPosicaoXdoVerticeDestino(aresta), 
+                                                retornaPosicaoYdoVerticeDestino(aresta));
+            }                     
         }
-        
-    }
-     
-     
-        
-    public static void main(String[] args) throws Exception {
-         
-        LerXml ler = new LerXml("/home/vitor/Downloads/mapa.xml");
-        DrawPanel dp = new DrawPanel(ler.lerMapa());
-        
         
     }
 }

@@ -19,6 +19,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author vitor
  */
 public class frmPrincipal extends javax.swing.JFrame {
+    private DrawPanel drawPanel;
+    private Mapa mapa;
 
     public frmPrincipal() {
         initComponents();
@@ -53,8 +55,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void lerArquivoXML(){
        LerXml ler = new LerXml(textPathArquivo.getText());
        try{
-          Mapa mapa = new Mapa(ler.lerMapa());
-          for (Vertice vertice : mapa.getVertices()) {
+          this.mapa = new Mapa(ler.lerMapa());
+          for (Vertice vertice : this.mapa.getVertices()) {
               log(vertice.toString());
               for (Aresta aresta : vertice.getArestas()) {
                   log(aresta.toString(), true);
@@ -67,7 +69,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
     
     private void criarMapa(){
-        //TODO                
+        drawPanel = new DrawPanel(this.mapa.getVertices());
+        //visualizarMapa.add(drawPanel);
+        
     }
     
 
