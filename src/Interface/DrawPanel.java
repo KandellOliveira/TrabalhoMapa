@@ -40,13 +40,18 @@ public class DrawPanel extends JFrame{
          return 0;
      }
     
-     public void paint(Graphics g){        
+     public void paint(Graphics g){  
+         int contador = 0;
+         int incremento = 10;
+         
          for (Vertice vertice : vertices) {  
             g.setColor(Color.blue);            
             g.setPaintMode();
-            g.fillOval(vertice.getPosicaoX()-30, vertice.getPosicaoY()-30, 60, 60);            
+            //g.fillOval(vertice.getPosicaoX()-30, vertice.getPosicaoY()-30, 60, 60);
+            g.drawOval(vertice.getPosicaoX()-30, vertice.getPosicaoY()-30, 60, 60);
             g.setColor(Color.black); 
             g.drawString(vertice.getNome(), vertice.getPosicaoX()-30, vertice.getPosicaoY()-30);
+            contador ++;
             for (Aresta aresta : vertice.getArestas()) {
                  g.setColor(Color.red);
 
@@ -55,8 +60,17 @@ public class DrawPanel extends JFrame{
                             retornaPosicaoXdoVerticeDestino(aresta), 
                             retornaPosicaoYdoVerticeDestino(aresta));
                  g.setColor(Color.BLACK);
-                 g.drawString(aresta.getPeso(), retornaPosicaoXdoVerticeDestino(aresta)+30, 
-                                                retornaPosicaoYdoVerticeDestino(aresta));
+                 
+                 if((contador%2)==0){
+                     incremento = 20;
+                 }
+                 else{
+                     incremento = 0;
+                 }
+                 
+                 g.drawString(aresta.getPeso(), ((vertice.getPosicaoX() + retornaPosicaoXdoVerticeDestino(aresta))/2)+incremento, 
+                                                ((vertice.getPosicaoY() + retornaPosicaoYdoVerticeDestino(aresta))/2)+incremento );
+                 
             }                     
         }
         
