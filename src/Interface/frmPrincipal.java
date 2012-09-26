@@ -10,6 +10,8 @@ import Modelos.Vertice;
 import Servicos.LerXml;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.File;
 import javax.swing.JFileChooser;
@@ -73,8 +75,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     private void criarMapa(){
         drawPanel = new DrawPanel(this.mapa.getVertices());
+        drawPanel.setPreferredSize(new Dimension(visualizarMapa.getWidth(), visualizarMapa.getHeight()));
+        drawPanel.setLocation(0, 0);;
         drawPanel.setVisible(true);
+        visualizarMapa.add(drawPanel);
         
+        //drawPanel.setVisible(true);
     }
     
 
@@ -121,11 +127,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         visualizarMapa.setLayout(visualizarMapaLayout);
         visualizarMapaLayout.setHorizontalGroup(
             visualizarMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGap(0, 804, Short.MAX_VALUE)
         );
         visualizarMapaLayout.setVerticalGroup(
             visualizarMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 258, Short.MAX_VALUE)
+            .addGap(0, 401, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Mapa", visualizarMapa);
@@ -160,7 +166,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLerXML)
                 .addGap(14, 14, 14)
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -233,6 +239,9 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
     }
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCarregarArquivo;
     private javax.swing.JButton btnLerXML;

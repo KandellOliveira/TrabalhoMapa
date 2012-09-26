@@ -10,15 +10,15 @@ import java.util.ArrayList;
 
      
 
-public class DrawPanel extends JFrame{
+public class DrawPanel extends JPanel{
     private ArrayList<Vertice> vertices;
     
      public DrawPanel(ArrayList<Vertice> vertices){       
-        setTitle("Mapa");
+        //setTitle("Mapa");
         setSize(800,400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(false);
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         this.vertices = vertices;    
     }    
      
