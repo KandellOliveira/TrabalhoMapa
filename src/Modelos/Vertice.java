@@ -1,5 +1,6 @@
 package Modelos;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 public class Vertice {
@@ -10,6 +11,9 @@ public class Vertice {
   private ArrayList<Aresta> arestas;
   private int pesoAtual = 0;
   private Vertice destinoAtual = null;
+  private List pesosDoVertice;
+  
+  
       
   public Vertice(boolean init, boolean fim, String nome,int x, int y) {
         this.init = init;
@@ -86,5 +90,16 @@ public class Vertice {
 
     public void setDestinoAtual(Vertice destinoAtual) {
         this.destinoAtual = destinoAtual;
-    }  
+    } 
+
+    public List getPesosDoVertice() {
+        return pesosDoVertice;
+    }
+
+    public void setPesosDoVertice(List pesosDoVertice) {
+        this.pesosDoVertice = pesosDoVertice;
+    }
+
+    
+    
 }
