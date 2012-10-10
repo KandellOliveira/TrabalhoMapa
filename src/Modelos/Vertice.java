@@ -8,14 +8,16 @@ public class Vertice {
   private int posicaoX, posicaoY;
   private String nome;
   private ArrayList<Aresta> arestas;
-  
+  private int pesoAtual = 0;
+  private Vertice destinoAtual = null;
+      
   public Vertice(boolean init, boolean fim, String nome,int x, int y) {
         this.init = init;
         this.fim = fim;
         this.nome = nome;
         this.posicaoX = x;
         this.posicaoY = y;
-    }
+    }  
   
     @Override
     public String toString() {
@@ -69,5 +71,20 @@ public class Vertice {
     public void setArestas(ArrayList<Aresta> arestas) {
         this.arestas = arestas;
     }
-  
+    
+    public int getPesoAtual() {
+        return pesoAtual;
+    }
+
+    public void setPesoAtual(int pesoAtual) {
+        this.pesoAtual = pesoAtual;
+    }
+
+    public Vertice getDestinoAtual() {
+        return destinoAtual;
+    }
+
+    public void setDestinoAtual(Vertice destinoAtual) {
+        this.destinoAtual = destinoAtual;
+    }  
 }

@@ -1,9 +1,9 @@
 package Modelos;
 
 public class Aresta {
-  private int peso ;
-  private String destino;
-
+   private int peso ;
+   private String destino;
+  
     public Aresta(int peso, String destino) {
         this.peso = peso;
         this.destino = destino;
@@ -13,8 +13,8 @@ public class Aresta {
         return destino;
     }
     
-    public String getPeso(){
-        return String.valueOf(this.peso);
+    public int getPeso(){
+        return peso;
     }
     
     @Override

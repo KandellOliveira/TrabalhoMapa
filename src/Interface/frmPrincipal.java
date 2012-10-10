@@ -14,6 +14,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.File;
+import java.util.Stack;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
@@ -29,6 +30,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     public frmPrincipal() {
         initComponents();
+       
     }
     
     private void mensagem(String mensagem){
@@ -94,6 +96,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         txtLog = new javax.swing.JTextArea();
         visualizarMapa = new javax.swing.JPanel();
+        btnMenorCaminho = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,7 +108,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         textPathArquivo.setEditable(false);
-        textPathArquivo.setText("/home/vitor/Downloads/mapa.xml");
+        textPathArquivo.setText("D:\\mapa.xml");
         textPathArquivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textPathArquivoActionPerformed(evt);
@@ -131,10 +134,17 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         visualizarMapaLayout.setVerticalGroup(
             visualizarMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Mapa", visualizarMapa);
+
+        btnMenorCaminho.setText("Menor Way");
+        btnMenorCaminho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenorCaminhoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,7 +155,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnLerXML)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnLerXML)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMenorCaminho))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -164,9 +177,11 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCarregarArquivo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLerXML)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLerXML)
+                    .addComponent(btnMenorCaminho))
                 .addGap(14, 14, 14)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -208,6 +223,16 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textPathArquivoActionPerformed
 
+    private void btnMenorCaminhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenorCaminhoActionPerformed
+        Stack<Vertice> menorCaminho = this.mapa.MostrarMenorCaminho();
+        log("----------------------------------------");
+        for (Vertice vertice : menorCaminho) {
+            log("Nome: "+vertice.getNome());
+            log("Peso: "+vertice.getPesoAtual());
+        }
+        log("----------------------------------------");
+    }//GEN-LAST:event_btnMenorCaminhoActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -245,6 +270,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCarregarArquivo;
     private javax.swing.JButton btnLerXML;
+    private javax.swing.JButton btnMenorCaminho;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField textPathArquivo;
     private javax.swing.JTextArea txtLog;

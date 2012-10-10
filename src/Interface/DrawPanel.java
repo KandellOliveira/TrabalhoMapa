@@ -68,7 +68,7 @@ public class DrawPanel extends JPanel{
                      incremento = 0;
                  }
                  
-                 g.drawString(aresta.getPeso(), ((vertice.getPosicaoX() + retornaPosicaoXdoVerticeDestino(aresta))/2)+incremento, 
+                 g.drawString(String.valueOf(aresta.getPeso()), ((vertice.getPosicaoX() + retornaPosicaoXdoVerticeDestino(aresta))/2)+incremento, 
                                                 ((vertice.getPosicaoY() + retornaPosicaoYdoVerticeDestino(aresta))/2)+incremento );
                  
             }                     
