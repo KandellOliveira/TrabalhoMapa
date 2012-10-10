@@ -10,7 +10,7 @@ public class Vertice {
   private String nome;
   private ArrayList<Aresta> arestas;
   private int pesoAtual = 0;
-  private Vertice destinoAtual = null;
+  private Vertice destinoAnterior = null;
   private List pesosDoVertice;
   
   
@@ -85,11 +85,11 @@ public class Vertice {
     }
 
     public Vertice getDestinoAtual() {
-        return destinoAtual;
+        return destinoAnterior;
     }
 
     public void setDestinoAtual(Vertice destinoAtual) {
-        this.destinoAtual = destinoAtual;
+        this.destinoAnterior = destinoAtual;
     } 
 
     public List getPesosDoVertice() {
