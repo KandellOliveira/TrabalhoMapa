@@ -11,7 +11,6 @@ public class Vertice {
   private ArrayList<Aresta> arestas;
   private int pesoAtual = 0;
   private Vertice destinoAnterior = null;
-  private List pesosDoVertice;
   
   
       
@@ -23,10 +22,26 @@ public class Vertice {
         this.posicaoY = y;
     }  
   
+  public Vertice(String nome){
+      this.nome = nome;
+  }
+  
     @Override
     public String toString() {
         return String.format("Nome:%s Inicio:%b Fim:%b X:%d Y:%d",getNome(),isInit(),isFim(),getPosicaoX(),getPosicaoY());
     }
+    
+    public boolean equals(String obj) {
+        return (this.getNome()==obj);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Vertice v = (Vertice)obj;
+        return getNome().equals(v.getNome());
+    }
+    
+    
 
     public boolean isInit() {
         return init;
@@ -92,14 +107,4 @@ public class Vertice {
         this.destinoAnterior = destinoAtual;
     } 
 
-    public List getPesosDoVertice() {
-        return pesosDoVertice;
-    }
-
-    public void setPesosDoVertice(List pesosDoVertice) {
-        this.pesosDoVertice = pesosDoVertice;
-    }
-
-    
-    
 }

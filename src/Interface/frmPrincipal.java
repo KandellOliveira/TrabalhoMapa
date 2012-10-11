@@ -108,7 +108,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         textPathArquivo.setEditable(false);
-        textPathArquivo.setText("D:\\mapa.xml");
+        textPathArquivo.setText("C:\\Users\\Vitor\\Desktop\\mapa.xml");
         textPathArquivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textPathArquivoActionPerformed(evt);

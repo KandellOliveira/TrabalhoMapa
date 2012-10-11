@@ -24,7 +24,7 @@ public class DrawPanel extends JPanel{
      
      private int retornaPosicaoXdoVerticeDestino(Aresta aresta){
          for (Vertice vertice : vertices) {
-             if(vertice.getNome().equals(aresta.getDestino())){
+             if(vertice.getNome().equals(aresta.getDestino().getNome())){
                  return vertice.getPosicaoX();
              }
          }
@@ -33,7 +33,7 @@ public class DrawPanel extends JPanel{
      
      private int retornaPosicaoYdoVerticeDestino(Aresta aresta){
          for (Vertice vertice : vertices) {
-             if(vertice.getNome().equals(aresta.getDestino())){
+             if(vertice.getNome().equals(aresta.getDestino().getNome())){
                  return vertice.getPosicaoY();
              }
          }

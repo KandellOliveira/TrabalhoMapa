@@ -1,7 +1,5 @@
 package Servicos;
 
-
-
 import Modelos.Aresta;
 import Modelos.Vertice;
 import java.util.ArrayList;
@@ -12,66 +10,64 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 public class LerXml {
-    
-    // caminho (path) do arquivo XML  
-  private String xmlPathname;  
-  
-  // construtor que seta o caminho do XML  
-  public LerXml( String path ) {  
-    xmlPathname = path;  
-  } 
-  
-  // le o XML carregando os dados dos usuários em um Vector.  
-// retorna o vector contendo os usuários cadastrados no XML.  
-public ArrayList<Vertice> lerMapa() throws Exception {  
-    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
-    DocumentBuilder db = dbf.newDocumentBuilder();  
-    Document doc = db.parse( xmlPathname );  
-    Element elem = doc.getDocumentElement();  
-    // pega todos os elementos usuario do XML  
-    NodeList nl = elem.getElementsByTagName( "vertice" );  
-  
-    // prepara o vetor      
-    ArrayList<Vertice> vetorVertice = new ArrayList<Vertice>(); 
-    
-    
-     // percorre cada elemento usuario encontrado  
-    for( int i=0; i<nl.getLength(); i++ ) {  
-        Element tagVertice = (Element) nl.item( i );  
-       
-        
-        // pega os dados cadastrado para o usuario atual  
-        int x = Integer.parseInt( tagVertice.getAttribute( "x" ) );
-        int y = Integer.parseInt( tagVertice.getAttribute( "y" ) );
-        String nome = tagVertice.getAttribute("nome");  
-        boolean init = Boolean.parseBoolean(tagVertice.getAttribute("init"));
-        boolean fim = Boolean.parseBoolean(tagVertice.getAttribute("fim"));
-       
-        // cria uma nova instancia do UsuarioGuj com os dados do xml  
-        Vertice vertice = new Vertice(init, fim, nome, x, y); 
-       
-        NodeList nlAresta = tagVertice.getElementsByTagName( "arestas" );  
-  
-        // prepara o vetor      
-        ArrayList<Aresta> vetorAresta = new ArrayList<Aresta>(); 
-           
-        for (int j = 0; j < nlAresta.getLength(); j++) {
-            Element tagAresta = (Element) nlAresta.item( j );  
-               
-            // pega os dados cadastrado para o usuario atual  
-            int peso = Integer.parseInt( tagAresta.getAttribute( "peso" ) );
-            String destino = tagAresta.getAttribute( "destino" );
-            
-            vetorAresta.add(new Aresta(peso,destino));
 
+    private String xmlPath;
+    private ArrayList<Vertice> vertices;
+
+    public LerXml(String path) {
+        xmlPath = path;
+    }
+
+    public ArrayList<Vertice> lerMapa() throws Exception {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        Document document = db.parse(xmlPath);
+        Element element = document.getDocumentElement();
+        NodeList verticeXml = element.getElementsByTagName("vertice");
+     
+        vertices = new ArrayList<Vertice>();
+
+        for (int i = 0; i < verticeXml.getLength(); i++) {
+            Element tagVertice = (Element) verticeXml.item(i);
+
+            int x = Integer.parseInt(tagVertice.getAttribute("x"));
+            int y = Integer.parseInt(tagVertice.getAttribute("y"));
+            String nome = tagVertice.getAttribute("nome");
+            boolean init = Boolean.parseBoolean(tagVertice.getAttribute("init"));
+            boolean fim = Boolean.parseBoolean(tagVertice.getAttribute("fim"));
+            
+            Vertice vertice = new Vertice(init, fim, nome, x, y);
+
+            //criarArestas(tagVertice, vertice);
+            
+            vertices.add(vertice);
         }
         
-        // adiciona o usuario na coleção (vector) de usuários do guj 
-        vertice.setArestas(vetorAresta);
-        vetorVertice.add( vertice );  
-    }  
-     
-    return vetorVertice;  
-}  
+        for (int i = 0; i < verticeXml.getLength(); i++) {
+            Element tagVertice = (Element) verticeXml.item(i);            
+            for (Vertice vertice : vertices) {
+                if(vertice.equals(tagVertice.getAttribute("nome"))){
+                    criarArestas(tagVertice, vertice);
+                }
+            }                                         
+        }
+        return vertices;
+    }
 
+    private void criarArestas(Element tagVertice, Vertice vertice) throws NumberFormatException {
+        NodeList arestasXml = tagVertice.getElementsByTagName("arestas");
+        ArrayList<Aresta> arestas = new ArrayList<Aresta>();
+
+        for (int j = 0; j < arestasXml.getLength(); j++) {
+            Element tagAresta = (Element) arestasXml.item(j);
+
+            int peso = Integer.parseInt(tagAresta.getAttribute("peso"));
+            Vertice verticeAuxiliar = new Vertice(tagAresta.getAttribute("destino"));
+            int i = vertices.indexOf(verticeAuxiliar);
+            Vertice verticeDestino = vertices.get(i);
+            arestas.add(new Aresta(peso, verticeDestino));
+        }
+
+        vertice.setArestas(arestas);
+    }
 }

@@ -2,14 +2,14 @@ package Modelos;
 
 public class Aresta {
    private int peso ;
-   private String destino;
+   private Vertice destino;
   
-    public Aresta(int peso, String destino) {
+    public Aresta(int peso, Vertice destino) {
         this.peso = peso;
         this.destino = destino;
     }  
     
-    public String getDestino(){
+    public Vertice getDestino(){
         return destino;
     }
     
@@ -19,6 +19,6 @@ public class Aresta {
     
     @Override
     public String toString(){
-        return "Peso="+peso +" Destino="+destino; 
+        return "Peso="+peso +" Destino="+destino.getNome(); 
     }
 }
