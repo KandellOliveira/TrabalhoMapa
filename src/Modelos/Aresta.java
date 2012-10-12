@@ -1,7 +1,7 @@
 package Modelos;
 
 public class Aresta {
-   private int peso ;
+   private int peso;
    private Vertice destino;
   
     public Aresta(int peso, Vertice destino) {

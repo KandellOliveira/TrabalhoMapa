@@ -9,7 +9,7 @@ public class Vertice {
   private int posicaoX, posicaoY;
   private String nome;
   private ArrayList<Aresta> arestas;
-  private int pesoAtual = 0;
+  private int pesoAtual = Integer.MAX_VALUE;
   private Vertice destinoAnterior = null;
   
   

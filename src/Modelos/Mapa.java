@@ -46,8 +46,8 @@ public class Mapa {
        
        for (Aresta aresta : verticeAtual.getArestas()) {
            int pesoDoCaminho = verticeAtual.getPesoAtual()+aresta.getPeso();
-           if (verticeAtual.getDestinoAtual().getPesoAtual() < pesoDoCaminho){
-               verticeAtual.getDestinoAtual().setPesoAtual(pesoDoCaminho);
+           if (aresta.getDestino().getPesoAtual() > pesoDoCaminho){
+               aresta.getDestino().setPesoAtual(pesoDoCaminho);
            }
            if (!verticeAtual.isFim()){
               MenorCaminho(verticeAtual.getDestinoAtual());
