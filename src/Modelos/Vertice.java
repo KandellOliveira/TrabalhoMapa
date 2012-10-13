@@ -92,18 +92,24 @@ public class Vertice {
     }
     
     public int getPesoAtual() {
-        return pesoAtual;
+        if (this.isInit()){
+            return 0;
+        }
+        else{
+            return pesoAtual;
+        }
+        
     }
 
     public void setPesoAtual(int pesoAtual) {
         this.pesoAtual = pesoAtual;
     }
 
-    public Vertice getDestinoAtual() {
+    public Vertice getDestinoAnterior() {
         return destinoAnterior;
     }
 
-    public void setDestinoAtual(Vertice destinoAtual) {
+    public void setDestinoAnterior(Vertice destinoAtual) {
         this.destinoAnterior = destinoAtual;
     } 
 

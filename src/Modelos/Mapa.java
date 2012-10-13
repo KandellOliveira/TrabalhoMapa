@@ -48,9 +48,10 @@ public class Mapa {
            int pesoDoCaminho = verticeAtual.getPesoAtual()+aresta.getPeso();
            if (aresta.getDestino().getPesoAtual() > pesoDoCaminho){
                aresta.getDestino().setPesoAtual(pesoDoCaminho);
+               aresta.getDestino().setDestinoAnterior(verticeAtual);
            }
            if (!verticeAtual.isFim()){
-              MenorCaminho(verticeAtual.getDestinoAtual());
+              MenorCaminho(aresta.getDestino());
            }
            else
                break;
@@ -59,11 +60,11 @@ public class Mapa {
    
    private Stack<Vertice> guardarMenorCaminho(){
        Vertice verticeAtual = retornaVerticeFinal();
-       Stack<Vertice> pilha = null;       
+       Stack<Vertice> pilha = new Stack<Vertice>();
        do{
            pilha.add(verticeAtual);
-           verticeAtual = verticeAtual.getDestinoAtual();
-       }while(verticeAtual.isInit());
+           verticeAtual = verticeAtual.getDestinoAnterior();
+       }while(verticeAtual!=null);
        return pilha; 
    }        
 }
