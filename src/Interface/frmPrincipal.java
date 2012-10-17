@@ -148,6 +148,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         jBlimpar.setText("Limpar");
+        jBlimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBlimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,6 +245,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         drawPanel.setMenorCaminho(menorCaminho);
     }//GEN-LAST:event_btnMenorCaminhoActionPerformed
+
+    private void jBlimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimparActionPerformed
+        // TODO add your handling code here:
+        txtLog.setText("");
+        visualizarMapa.removeAll();
+    }//GEN-LAST:event_jBlimparActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
