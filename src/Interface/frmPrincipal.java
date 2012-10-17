@@ -249,6 +249,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void jBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparActionPerformed
         // TODO add your handling code here:
        txtLog.setText("");
+       visualizarMapa.removeAll();
         
     }//GEN-LAST:event_jBLimparActionPerformed
 
