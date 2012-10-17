@@ -84,12 +84,12 @@ public class DrawPanel extends JPanel {
             for (Vertice vertice : this.menorCaminho) {
                 g.setColor(Color.ORANGE);
                 g.drawOval(vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30, 60, 60);
-                for (Aresta aresta : vertice.getArestas()) {
+                if(vertice.getDestinoAnterior()!= null){
                     g.setColor(Color.yellow);
                     g.drawLine(vertice.getPosicaoX(),
                             vertice.getPosicaoY(),
-                            retornaPosicaoXdoVerticeDestino(aresta),
-                            retornaPosicaoYdoVerticeDestino(aresta));
+                            vertice.getDestinoAnterior().getPosicaoX(),
+                            vertice.getDestinoAnterior().getPosicaoY());
                 }
             }
         }

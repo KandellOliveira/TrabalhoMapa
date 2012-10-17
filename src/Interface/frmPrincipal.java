@@ -250,6 +250,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtLog.setText("");
         visualizarMapa.removeAll();
+        visualizarMapa.repaint();
     }//GEN-LAST:event_jBlimparActionPerformed
 
     public static void main(String args[]) {
