@@ -81,17 +81,30 @@ public class DrawPanel extends JPanel {
 
     private void desenharMenorcaminho(Graphics g) {
         if (this.menorCaminho != null) {
-            for (Vertice vertice : this.menorCaminho) {
-                g.setColor(Color.ORANGE);
-                g.drawOval(vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30, 60, 60);
-                if(vertice.getDestinoAnterior()!= null){
+
+            desenharArestas(g);
+            desenharVertices(g);
+        }
+    }
+    
+    private void desenharArestas(Graphics g){
+    for (Vertice vertice1 : this.menorCaminho) {
+                if (vertice1.getDestinoAnterior() != null) {
                     g.setColor(Color.yellow);
-                    g.drawLine(vertice.getPosicaoX(),
-                            vertice.getPosicaoY(),
-                            vertice.getDestinoAnterior().getPosicaoX(),
-                            vertice.getDestinoAnterior().getPosicaoY());
+                    g.drawLine(vertice1.getPosicaoX(),
+                            vertice1.getPosicaoY(),
+                            vertice1.getDestinoAnterior().getPosicaoX(),
+                            vertice1.getDestinoAnterior().getPosicaoY());
                 }
             }
+    }
+
+    private void desenharVertices(Graphics g) {
+        for (Vertice vertice : this.menorCaminho) {
+
+            g.setColor(Color.ORANGE);
+            g.fillOval(vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30, 60, 60);
+
         }
     }
 }
