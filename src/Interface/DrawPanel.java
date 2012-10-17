@@ -18,7 +18,7 @@ public class DrawPanel extends JPanel {
     }
 
     public DrawPanel(ArrayList<Vertice> vertices) {
-        setSize(800, 400);
+        setSize(1500, 750);
         setVisible(false);
         this.vertices = vertices;
     }
