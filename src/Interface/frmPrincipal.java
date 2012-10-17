@@ -97,6 +97,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtLog = new javax.swing.JTextArea();
         visualizarMapa = new javax.swing.JPanel();
         btnMenorCaminho = new javax.swing.JButton();
+        jBLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,7 +109,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         textPathArquivo.setEditable(false);
-        textPathArquivo.setText("C:\\Users\\Vitor\\Desktop\\mapa.xml");
+        textPathArquivo.setText("D:\\mapa.xml");
         textPathArquivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textPathArquivoActionPerformed(evt);
@@ -146,6 +147,13 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jBLimpar.setText("Limpar");
+        jBLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,7 +166,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnLerXML)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnMenorCaminho))
+                                .addComponent(btnMenorCaminho)
+                                .addGap(33, 33, 33)
+                                .addComponent(jBLimpar))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,7 +189,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLerXML)
-                    .addComponent(btnMenorCaminho))
+                    .addComponent(btnMenorCaminho)
+                    .addComponent(jBLimpar))
                 .addGap(14, 14, 14)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -235,6 +246,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         drawPanel.setMenorCaminho(menorCaminho);
     }//GEN-LAST:event_btnMenorCaminhoActionPerformed
 
+    private void jBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparActionPerformed
+        // TODO add your handling code here:
+       txtLog.setText("");
+        
+    }//GEN-LAST:event_jBLimparActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -273,6 +290,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnCarregarArquivo;
     private javax.swing.JButton btnLerXML;
     private javax.swing.JButton btnMenorCaminho;
+    private javax.swing.JButton jBLimpar;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField textPathArquivo;
     private javax.swing.JTextArea txtLog;
