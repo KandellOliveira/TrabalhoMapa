@@ -97,7 +97,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtLog = new javax.swing.JTextArea();
         visualizarMapa = new javax.swing.JPanel();
         btnMenorCaminho = new javax.swing.JButton();
-        jBLimpar = new javax.swing.JButton();
+        jBlimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,12 +147,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jBLimpar.setText("Limpar");
-        jBLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimparActionPerformed(evt);
-            }
-        });
+        jBlimpar.setText("Limpar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,7 +163,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnMenorCaminho)
                                 .addGap(33, 33, 33)
-                                .addComponent(jBLimpar))
+                                .addComponent(jBlimpar))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -190,7 +185,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLerXML)
                     .addComponent(btnMenorCaminho)
-                    .addComponent(jBLimpar))
+                    .addComponent(jBlimpar))
                 .addGap(14, 14, 14)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -246,13 +241,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         drawPanel.setMenorCaminho(menorCaminho);
     }//GEN-LAST:event_btnMenorCaminhoActionPerformed
 
-    private void jBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparActionPerformed
-        // TODO add your handling code here:
-       txtLog.setText("");
-       visualizarMapa.removeAll();
-        
-    }//GEN-LAST:event_jBLimparActionPerformed
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -291,7 +279,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnCarregarArquivo;
     private javax.swing.JButton btnLerXML;
     private javax.swing.JButton btnMenorCaminho;
-    private javax.swing.JButton jBLimpar;
+    private javax.swing.JButton jBlimpar;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField textPathArquivo;
     private javax.swing.JTextArea txtLog;
