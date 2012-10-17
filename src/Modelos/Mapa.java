@@ -48,6 +48,8 @@ public class Mapa {
            int pesoDoCaminho = verticeAtual.getPesoAtual()+aresta.getPeso();
            if (aresta.getDestino().getPesoAtual() > pesoDoCaminho){
                aresta.getDestino().setPesoAtual(pesoDoCaminho);
+               Vertice verticeAux = new Vertice(verticeAtual.isInit(), vertice.isFim(), verticeAtual.getNome(), verticeAtual.getPosicaoX(), verticeAtual.getPosicaoY());
+               verticeAux.setArestas(new ArrayList<Aresta>(){add(aresta)});
                aresta.getDestino().setDestinoAnterior(verticeAtual);
            }
            if (!verticeAtual.isFim()){

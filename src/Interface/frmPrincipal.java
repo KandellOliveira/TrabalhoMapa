@@ -231,6 +231,8 @@ public class frmPrincipal extends javax.swing.JFrame {
             log("Peso: "+vertice.getPesoAtual());
         }
         log("----------------------------------------");
+        
+        drawPanel.setMenorCaminho(menorCaminho);
     }//GEN-LAST:event_btnMenorCaminhoActionPerformed
 
     public static void main(String args[]) {
