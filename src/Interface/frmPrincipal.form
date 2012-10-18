@@ -144,7 +144,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnMenorCaminho">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Menor Way"/>
+        <Property name="text" type="java.lang.String" value="Menor Caminho"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenorCaminhoActionPerformed"/>

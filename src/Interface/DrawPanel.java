@@ -47,16 +47,69 @@ public class DrawPanel extends JPanel {
     }
 
     private void desenharMapa(Graphics g) {
-        int contador = 0;
-        int incremento = 10;
+        desenharArestasDoMapa(g);
+        desenharVerticesDoMapa(g);
+    }
 
+    private void desenharMenorcaminho(Graphics g) {
+        if (this.menorCaminho != null) {
+            desenharArestas(g);
+            desenharVertices(g);
+        }
+    }
+
+    private void desenharArestas(Graphics g) {
+        for (Vertice vertice1 : this.menorCaminho) {
+            if (vertice1.getDestinoAnterior() != null) {
+                g.setColor(Color.yellow);
+                g.drawLine(vertice1.getPosicaoX(),
+                        vertice1.getPosicaoY(),
+                        vertice1.getDestinoAnterior().getPosicaoX(),
+                        vertice1.getDestinoAnterior().getPosicaoY());
+            }
+        }
+    }
+
+    private void desenharVertices(Graphics g) {
+        for (Vertice vertice : this.menorCaminho) {
+
+            g.setColor(Color.ORANGE);
+            g.fillOval(vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30, 60, 60);
+
+            escreverInicioEfim(vertice, g);
+        }
+    }
+
+    private void escreverInicioEfim(Vertice vertice, Graphics g) {
+        g.setColor(Color.green);
+        if (vertice.isInit()) {
+            g.drawString("Inicio", vertice.getPosicaoX(), vertice.getPosicaoY());
+        }
+
+        if (vertice.isFim()) {
+            g.drawString("Fim", vertice.getPosicaoX(), vertice.getPosicaoY());
+        }
+    }
+
+    private int desenharVerticesDoMapa(Graphics g) {
+        int contador = 0;
         for (Vertice vertice : vertices) {
             g.setColor(Color.blue);
-            //g.setPaintMode();
-            g.drawOval(vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30, 60, 60);
+            g.fillOval(vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30, 60, 60);
             g.setColor(Color.black);
             g.drawString(vertice.getNome(), vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30);
             contador++;
+
+
+            escreverInicioEfim(vertice, g);
+        }
+        return contador;
+    }
+
+    private void desenharArestasDoMapa(Graphics g) {
+        int contador = 0;
+        int incremento = 10;
+        for (Vertice vertice : vertices) {
             for (Aresta aresta : vertice.getArestas()) {
                 g.setColor(Color.red);
 
@@ -76,35 +129,6 @@ public class DrawPanel extends JPanel {
                         ((vertice.getPosicaoY() + retornaPosicaoYdoVerticeDestino(aresta)) / 2) + incremento);
 
             }
-        }
-    }
-
-    private void desenharMenorcaminho(Graphics g) {
-        if (this.menorCaminho != null) {
-
-            desenharArestas(g);
-            desenharVertices(g);
-        }
-    }
-    
-    private void desenharArestas(Graphics g){
-    for (Vertice vertice1 : this.menorCaminho) {
-                if (vertice1.getDestinoAnterior() != null) {
-                    g.setColor(Color.yellow);
-                    g.drawLine(vertice1.getPosicaoX(),
-                            vertice1.getPosicaoY(),
-                            vertice1.getDestinoAnterior().getPosicaoX(),
-                            vertice1.getDestinoAnterior().getPosicaoY());
-                }
-            }
-    }
-
-    private void desenharVertices(Graphics g) {
-        for (Vertice vertice : this.menorCaminho) {
-
-            g.setColor(Color.ORANGE);
-            g.fillOval(vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30, 60, 60);
-
         }
     }
 }

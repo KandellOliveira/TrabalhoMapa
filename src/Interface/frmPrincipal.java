@@ -30,6 +30,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     public frmPrincipal() {
         initComponents();
+        setLocationRelativeTo(null); 
        
     }
     
@@ -140,7 +141,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Mapa", visualizarMapa);
 
-        btnMenorCaminho.setText("Menor Way");
+        btnMenorCaminho.setText("Menor Caminho");
         btnMenorCaminho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenorCaminhoActionPerformed(evt);
@@ -244,6 +245,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         log("----------------------------------------");
         
         drawPanel.setMenorCaminho(menorCaminho);
+        
     }//GEN-LAST:event_btnMenorCaminhoActionPerformed
 
     private void jBlimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimparActionPerformed
