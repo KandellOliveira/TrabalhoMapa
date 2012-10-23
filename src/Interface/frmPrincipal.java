@@ -98,11 +98,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnLerXML = new javax.swing.JButton();
         textPathArquivo = new javax.swing.JTextField();
         btnCarregarArquivo = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        txtLog = new javax.swing.JTextArea();
-        visualizarMapa = new javax.swing.JPanel();
         btnMenorCaminho = new javax.swing.JButton();
         jBlimpar = new javax.swing.JButton();
+        jPanelLog = new javax.swing.JPanel();
+        txtLog = new javax.swing.JTextArea();
+        jPanelMapa = new javax.swing.JPanel();
+        visualizarMapa = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,29 +122,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnCarregarArquivo.setText("...");
+        btnCarregarArquivo.setText("Localizar");
         btnCarregarArquivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCarregarArquivoActionPerformed(evt);
             }
         });
-
-        txtLog.setColumns(20);
-        txtLog.setRows(5);
-        jTabbedPane1.addTab("XML", txtLog);
-
-        javax.swing.GroupLayout visualizarMapaLayout = new javax.swing.GroupLayout(visualizarMapa);
-        visualizarMapa.setLayout(visualizarMapaLayout);
-        visualizarMapaLayout.setHorizontalGroup(
-            visualizarMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 804, Short.MAX_VALUE)
-        );
-        visualizarMapaLayout.setVerticalGroup(
-            visualizarMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Mapa", visualizarMapa);
 
         btnMenorCaminho.setText("Menor Caminho");
         btnMenorCaminho.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +143,54 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jPanelLog.setBorder(javax.swing.BorderFactory.createTitledBorder("Log"));
+
+        txtLog.setColumns(20);
+        txtLog.setRows(5);
+
+        javax.swing.GroupLayout jPanelLogLayout = new javax.swing.GroupLayout(jPanelLog);
+        jPanelLog.setLayout(jPanelLogLayout);
+        jPanelLogLayout.setHorizontalGroup(
+            jPanelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 207, Short.MAX_VALUE)
+            .addGroup(jPanelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(txtLog, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+        );
+        jPanelLogLayout.setVerticalGroup(
+            jPanelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(txtLog, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE))
+        );
+
+        jPanelMapa.setBorder(javax.swing.BorderFactory.createTitledBorder("Mapa"));
+
+        javax.swing.GroupLayout visualizarMapaLayout = new javax.swing.GroupLayout(visualizarMapa);
+        visualizarMapa.setLayout(visualizarMapaLayout);
+        visualizarMapaLayout.setHorizontalGroup(
+            visualizarMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 611, Short.MAX_VALUE)
+        );
+        visualizarMapaLayout.setVerticalGroup(
+            visualizarMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 468, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelMapaLayout = new javax.swing.GroupLayout(jPanelMapa);
+        jPanelMapa.setLayout(jPanelMapaLayout);
+        jPanelMapaLayout.setHorizontalGroup(
+            jPanelMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanelMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(visualizarMapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelMapaLayout.setVerticalGroup(
+            jPanelMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 468, Short.MAX_VALUE)
+            .addGroup(jPanelMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(visualizarMapa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,18 +202,20 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnLerXML)
-                                .addGap(18, 18, 18)
+                                .addGap(37, 37, 37)
                                 .addComponent(btnMenorCaminho)
-                                .addGap(33, 33, 33)
+                                .addGap(77, 77, 77)
                                 .addComponent(jBlimpar))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCarregarArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCarregarArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 396, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTabbedPane1)))
+                        .addComponent(jPanelLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelMapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -196,8 +230,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addComponent(btnLerXML)
                     .addComponent(btnMenorCaminho)
                     .addComponent(jBlimpar))
-                .addGap(14, 14, 14)
-                .addComponent(jTabbedPane1)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelMapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -249,6 +285,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         log("----------------------------------------");
         
         drawPanel.setMenorCaminho(menorCaminho);
+        drawPanel.repaint();
         
     }//GEN-LAST:event_btnMenorCaminhoActionPerformed
 
@@ -298,7 +335,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnLerXML;
     private javax.swing.JButton btnMenorCaminho;
     private javax.swing.JButton jBlimpar;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel jPanelLog;
+    private javax.swing.JPanel jPanelMapa;
     private javax.swing.JTextField textPathArquivo;
     private javax.swing.JTextArea txtLog;
     private javax.swing.JPanel visualizarMapa;
