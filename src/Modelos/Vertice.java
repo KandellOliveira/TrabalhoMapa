@@ -39,9 +39,7 @@ public class Vertice {
     public boolean equals(Object obj) {
         Vertice v = (Vertice)obj;
         return getNome().equals(v.getNome());
-    }
-    
-    
+    }       
 
     public boolean isInit() {
         return init;
@@ -112,5 +110,4 @@ public class Vertice {
     public void setDestinoAnterior(Vertice destinoAtual) {
         this.destinoAnterior = destinoAtual;
     } 
-
 }

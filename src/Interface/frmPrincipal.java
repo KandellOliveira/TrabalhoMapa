@@ -33,9 +33,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     public frmPrincipal() {
         initComponents();
         setLocationRelativeTo(null); 
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice gd = ge.getDefaultScreenDevice();
-        gd.setFullScreenWindow(this);
     }
     
     private void mensagem(String mensagem){
@@ -85,9 +82,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         drawPanel.setPreferredSize(new Dimension(visualizarMapa.getWidth(), visualizarMapa.getHeight()));
         drawPanel.setLocation(0, 0);;
         drawPanel.setVisible(true);
-        visualizarMapa.add(drawPanel);
-        
-        //drawPanel.setVisible(true);
+        visualizarMapa.add(drawPanel);        
     }
     
 
@@ -186,7 +181,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         jPanelMapaLayout.setVerticalGroup(
             jPanelMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+            .addGap(0, 368, Short.MAX_VALUE)
             .addGroup(jPanelMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(visualizarMapa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -210,7 +205,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addComponent(textPathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnCarregarArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 396, Short.MAX_VALUE))
+                        .addGap(0, 324, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanelLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,7 +253,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         fileChooser.addChoosableFileFilter(filter);
         fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.setMultiSelectionEnabled(false);
-                
         
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);        
         int res = fileChooser.showOpenDialog(this);
@@ -272,7 +266,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCarregarArquivoActionPerformed
 
     private void textPathArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPathArquivoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textPathArquivoActionPerformed
 
     private void btnMenorCaminhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenorCaminhoActionPerformed

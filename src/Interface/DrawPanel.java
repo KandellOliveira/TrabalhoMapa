@@ -18,7 +18,7 @@ public class DrawPanel extends JPanel {
     }
 
     public DrawPanel(ArrayList<Vertice> vertices) {
-        setSize(1500, 750);
+        setSize(800, 600);
         setVisible(false);
         this.vertices = vertices;
     }
@@ -76,11 +76,11 @@ public class DrawPanel extends JPanel {
             g.setColor(Color.ORANGE);
             g.fillOval(vertice.getPosicaoX() - 30, vertice.getPosicaoY() - 30, 60, 60);
 
-            escreverInicioEfim(vertice, g);
+            rotularInicioEfim(vertice, g);
         }
     }
 
-    private void escreverInicioEfim(Vertice vertice, Graphics g) {
+    private void rotularInicioEfim(Vertice vertice, Graphics g) {
         g.setColor(Color.green);
         if (vertice.isInit()) {
             g.drawString("Inicio", vertice.getPosicaoX(), vertice.getPosicaoY());
@@ -101,7 +101,7 @@ public class DrawPanel extends JPanel {
             contador++;
 
 
-            escreverInicioEfim(vertice, g);
+            rotularInicioEfim(vertice, g);
         }
         return contador;
     }

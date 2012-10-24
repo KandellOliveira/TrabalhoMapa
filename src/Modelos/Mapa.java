@@ -34,7 +34,7 @@ public class Mapa {
    
    public Stack<Vertice> MostrarMenorCaminho(){
       MenorCaminho(null);
-      return guardarMenorCaminho();
+      return retornarMenorCaminho();
    }
    
    private void MenorCaminho(Vertice vertice){
@@ -48,8 +48,6 @@ public class Mapa {
            int pesoDoCaminho = verticeAtual.getPesoAtual()+aresta.getPeso();
            if (aresta.getDestino().getPesoAtual() > pesoDoCaminho){
                aresta.getDestino().setPesoAtual(pesoDoCaminho);
-               //Vertice verticeAux = new Vertice(verticeAtual.isInit(), vertice.isFim(), verticeAtual.getNome(), verticeAtual.getPosicaoX(), verticeAtual.getPosicaoY());
-               //verticeAux.setArestas(new ArrayList<Aresta>(){add(aresta)});
                aresta.getDestino().setDestinoAnterior(verticeAtual);
            }
            if (!verticeAtual.isFim()){
@@ -60,7 +58,7 @@ public class Mapa {
        }
    }
    
-   private Stack<Vertice> guardarMenorCaminho(){
+   private Stack<Vertice> retornarMenorCaminho(){
        Vertice verticeAtual = retornaVerticeFinal();
        Stack<Vertice> pilha = new Stack<Vertice>();
        do{
