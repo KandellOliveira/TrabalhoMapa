@@ -18,7 +18,7 @@ public class DrawPanel extends JPanel {
     }
 
     public DrawPanel(ArrayList<Vertice> vertices) {
-        setSize(800, 600);
+        setSize(1000, 800);
         setVisible(false);
         this.vertices = vertices;
     }
@@ -108,8 +108,9 @@ public class DrawPanel extends JPanel {
 
     private void desenharArestasDoMapa(Graphics g) {
         int contador = 0;
-        int incremento = 10;
+        int incremento = 0;
         for (Vertice vertice : vertices) {
+            contador++;
             for (Aresta aresta : vertice.getArestas()) {
                 g.setColor(Color.red);
 
