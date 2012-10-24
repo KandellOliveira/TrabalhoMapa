@@ -33,6 +33,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     public frmPrincipal() {
         initComponents();
         setLocationRelativeTo(null); 
+        setExtendedState(MAXIMIZED_BOTH);
     }
     
     private void mensagem(String mensagem){
@@ -279,7 +280,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         log("----------------------------------------");
         
         drawPanel.setMenorCaminho(menorCaminho);
-       pack();
+       drawPanel.repaint();
         
     }//GEN-LAST:event_btnMenorCaminhoActionPerformed
 
