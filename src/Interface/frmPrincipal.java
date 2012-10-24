@@ -279,7 +279,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         log("----------------------------------------");
         
         drawPanel.setMenorCaminho(menorCaminho);
-        drawPanel.repaint();
+       pack();
         
     }//GEN-LAST:event_btnMenorCaminhoActionPerformed
 
